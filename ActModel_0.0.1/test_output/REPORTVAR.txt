@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ROOT>
+	<CLASS_TYPE type="str" is_array="false">ReportVarTable</CLASS_TYPE>
+	<NAME type="str" is_array="false">report1</NAME>
+	<BODY>
+		<REPORT_VARS name="ok">
+			aa,bb,CC
+		</REPORT_VARS>
+	</BODY>
+</ROOT>

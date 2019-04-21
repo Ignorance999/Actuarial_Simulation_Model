@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ROOT>
+	<CLASS_TYPE type="str" is_array="false">AccumTable</CLASS_TYPE>
+	<NAME type="str" is_array="false">Accum1</NAME>
+	<BODY>
+		<ACCUMULATION name="ACC1">
+			PROD1
+		</ACCUMULATION>
+		<ACCUMULATION name="ACC2">
+			PROD1,PROD2
+		</ACCUMULATION>		
+	</BODY>
+</ROOT>

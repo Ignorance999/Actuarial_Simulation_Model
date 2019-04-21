@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ROOT>
+	<CLASS_TYPE type="str" is_array="false">OutputFormatTable</CLASS_TYPE>
+	<NAME type="str" is_array="false">out1</NAME>
+	<BODY>
+		<OUTPUT_FORMAT name="one">
+			<OUTPUT_DIM name="first">
+				<ACCUMULATION>
+					ACC1
+				</ACCUMULATION>
+				<PRODUCT>
+					PROD2
+				</PRODUCT>
+			</OUTPUT_DIM>
+			<OUTPUT_DIM name="second">
+				<CRITERIA>
+					bTemp
+				</CRITERIA>			
+			</OUTPUT_DIM>
+		</OUTPUT_FORMAT>
+		<OUTPUT_FORMAT name="second">
+			<OUTPUT_DIM name="first">
+				<ACCUMULATION>
+					ACC1
+				</ACCUMULATION>
+				<PRODUCT>
+					PROD2
+				</PRODUCT>
+			</OUTPUT_DIM>
+			<OUTPUT_DIM name="second">
+				<CRITERIA>
+					bTemp
+				</CRITERIA>			
+			</OUTPUT_DIM>
+		</OUTPUT_FORMAT>
+	</BODY>
+</ROOT>
