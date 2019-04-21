@@ -8,6 +8,6 @@ ShareAlike
 The license can be downloaded using the following link:
 https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt
 
-The summary of the license can be viewed at:
+The summary of the license can be read at:
 https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_GB
 
