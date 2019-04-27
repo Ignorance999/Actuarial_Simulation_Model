@@ -1,0 +1,83 @@
+doc_mKeyGenTable
+===================
+
+Documentation
+*************
+1. Brief Explanation of KeyGenTable
+	1. This class is inherited from GenTable
+	2. It will read XML lookup files, only 1 key column is allowed. The name of the key column is specified in __init__
+2. List of Member Variables and Methods
+	0. How to Create a class instance
+	
+		>>> kg=KeyGenTable(sRestriction="PRODUCT", sFilePath=".\\Prod\\PROD.txt")
+		>>> kg_error=KeyGenTable(sRestriction="lol", sFilePath=".\\Prod\\PROD.txt")
+		Exception: KeyGenTable's self._srestriction is not equal to KEYCOLS
+		
+	1. Functions
+		1. __init__(self,*args,**kwargs)
+		
+			>>>kg.__dict__
+			{'_pThisModuleDir': WindowsPath('C:/Users/User/Documents/ACT/ActModel/ActModel_Current'),
+			 '_pFilePath': WindowsPath('Prod/PROD.txt'),
+			 '_xmlRoot': <Element 'ROOT' at 0x0000000009EFA9A8>,
+			 'CLASS_TYPE': 'KeyGenTable',
+			 'NAME': 'onegufWFf2y',
+			 'FEATURES': [''],
+			 'KEYCOLS': ['PRODUCT'],
+			 'HEADINGS': ['SCEN_ID', 'PRODUCT', 'STHIRD'],
+			 'TYPE': ['int', 'str', 'float'],
+			 'BODY': {('PROD1',): {'SCEN_ID': 1, 'STHIRD': 3.0},
+			  ('PROD2',): {'SCEN_ID': 2, 'STHIRD': 1.0},
+			  ('PROD3',): {'SCEN_ID': 4, 'STHIRD': 1.0}},
+			 '_sRestriction': 'PRODUCT'}
+			 
+		2. _fXMLFindChildOutputList(self,sChildName,sType="str", bIsArray=True, #xmlRoot=None,
+                            sStripChars=r"\s+",sSplitChars=",")
+			Inherited
+			
+		3. _fXMLReadBody(self)
+			Inherited
+		
+		... and other functions
+		
+	2. Variables
+		1. self._pThisModuleDir
+		2. self._pFilePath
+		3. self._xmlRoot
+		4. self.BODY 			
+3. Related Document
+	Sample Code for PROD.txt
+	
+	.. code-block:: xml	
+	
+		<?xml version="1.0"?>
+		<ROOT>
+			<CLASS_TYPE type="str" is_array="false">KeyGenTable</CLASS_TYPE>
+			<NAME type="str" is_array="false">onegufWFf2y</NAME>
+			<FEATURES type="str">
+			</FEATURES>
+			<KEYCOLS type="str">
+			PRODUCT
+			</KEYCOLS>
+			<HEADINGS type="str">
+			SCEN_ID,PRODUCT,STHIRD
+			</HEADINGS>
+			<TYPE type="str">
+			int,str,float
+			</TYPE>
+			<BODY>
+			1,PROD1,3
+			2,PROD2,1
+			4,PROD3,1
+			</BODY>
+		</ROOT>
+
+
+
+
+	
+	
+	
+	
+	
+	
