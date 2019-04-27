@@ -4,7 +4,6 @@ Created on Sat Mar 16 15:33:14 2019
 
 @author: User
 """
-#import xml.etree.ElementTree as xmlET
 import sys,os
 import re  
 from pathlib import Path
@@ -12,30 +11,21 @@ import xml.etree.ElementTree as xmlET
 import mUtils
 import pprint
 
-#heading tbl
-'''
-        from pathlib import Path
-        import xml.etree.ElementTree as xmlET
-      import re 
-      '''
+
 class InputPrototype(object):
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
-    def __init__(self,sFilePath=".\\Table.txt"): #sTableDir=".",
-        #KEYCOL STARTS AT 0
-        #from pathlib import Path
-        # import xml.etree.ElementTree as xmlET
-        self._pThisModuleDir = Path(__file__).parent
-        #print(self._sThisModuleDir)
-        #print(fileDir)
-        #self._pTableDir = (self._pThisModuleDir/sTableDir).resolve()
-        #print(self._sTableDir)        
+ 
+    def __init__(self,sFilePath=".\\test_input\\Table.txt"): 
+        try:
+            self._pThisModuleDir = Path(__file__).parent
+        except NameError:
+            #Console Mode
+            self._pThisModuleDir=None
+        
+ 
         self._pFilePath=Path(sFilePath)  
         self._xmlRoot = xmlET.parse(self._pFilePath).getroot()
-        for xmlChild in self._xmlRoot:#list(zip(Table._lsXmlAttrs,Table._lsXmlTypes)):
+        for xmlChild in self._xmlRoot:
             if xmlChild.tag != "BODY":
-                #print(xmlChild.tag)
-               # print(xmlChild.attrib["type"])
                 if "is_array" in xmlChild.attrib:
                     bIsArray=False if (xmlChild.attrib["is_array"].lower()=="false") else True
                 else:
@@ -46,10 +36,9 @@ class InputPrototype(object):
                                                           bIsArray=bIsArray)) 
         self.BODY=self._fXMLReadBody() 
         
-    def _fXMLFindChildOutputList(self,sChildName,sType="str", bIsArray=True, #xmlRoot=None,
+    def _fXMLFindChildOutputList(self,sChildName,sType="str", bIsArray=True, 
                             sStripChars=r"\s+",sSplitChars=","):
         sTemp=self._xmlRoot.find(sChildName).text 
-        #fType=globals()["__builtins__"][sType]
         fType=mUtils.fGetTypeFromBuiltins(sType)
         if bIsArray:
             lsTemp=sTemp.split(sSplitChars)
@@ -61,7 +50,6 @@ class InputPrototype(object):
             return Temp
     
     def _fXMLReadBody(self):
-        #print("gg1")
         pass
     def __str__(self):
         return str(pprint.pprint(self.__dict__))

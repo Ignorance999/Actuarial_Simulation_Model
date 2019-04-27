@@ -9,8 +9,10 @@ Welcome to ActModel's documentation!
 .. toctree::
    :caption: Contents:
    :maxdepth: 2
+   :titlesonly:
    
    license
+   Documentations/content_for_codes_doc
    
 
 
