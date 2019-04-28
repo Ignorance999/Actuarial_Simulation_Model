@@ -2,7 +2,6 @@
 """
 Created on Mon Mar 25 15:52:12 2019
 
-@author: User
 """
 import pandas
 import itertools
@@ -16,15 +15,7 @@ class ResultBlock(object):
         self.ltRangeInd=ltRangeInd
         self.lsRangeIndNames=lsRangeIndNames
         self.ltCombinedInd=list(itertools.product(ltOutputGpInd,ltRangeInd))
-        
-        '''
-        ltSepCombInd=[]
-        for t in ltCombinedInd:
-            lTemp=[]
-            for t2 in t:
-                lTemp.extend(t2)
-            ltSepCombInd.append(tuple(lTemp))
-        '''
+
         indexTemp=pandas.MultiIndex.from_tuples(self.ltCombinedInd)
         
         self.dfResults=pandas.DataFrame(index=indexTemp)
@@ -46,18 +37,3 @@ class ResultBlock(object):
         dfTemp=self.dfResults.copy(deep=True)
         dfTemp.index=self.dfResults.index.map(str)
         return dfTemp
-'''        
-a=[((10,20),(30,40)),
-   ((10,40),(30,40))]        
-b=[(1,2),
-    (3,4)]
-r=ResultBlock(a,b,["haha","ff","ee"])
-#r.fAddRow()
-#r.fAddRow({1:11,2:22,3:33})
-print(r.dfResults)
-s=r.dfResults
-s["e"]=(1,2,3,4)
-s.loc[(10,20),(30,40),1,2]#slower
-s.loc[((10,20),(30,40),1,2)]#much faster
-'''
-#p._Output.ddReports["one"][('t',)].dfResults

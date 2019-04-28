@@ -12,6 +12,9 @@ import collections
 import importlib
 from mGlobalSettings import GlobalSettings
 class Process(object):
+    """
+
+    """
     def __init__(self):
         self.dMode={"bIfRunByProd":False}#useless now
         self._Input=Input()

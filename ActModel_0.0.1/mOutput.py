@@ -9,6 +9,9 @@ import mUtils
 import re
 import pandas
 class Output():
+    """
+
+    """
     def __init__(self,inputTemp,globalsettingsTemp):
         self._Input=inputTemp
         self._GlobalSettings=globalsettingsTemp
@@ -19,6 +22,12 @@ class Output():
         #key is range tuple
         
     def fRecordPolResults(self,varTemp,odCURR_OUTPUT_FORMAT_RAW_CHECK):
+        """
+
+        :param varTemp:
+        :param odCURR_OUTPUT_FORMAT_RAW_CHECK:
+        :return:
+        """
         tFuncArgs=tuple(varTemp.lsFuncArgs)
         
         #for skey,dCURR_OUTPUT_FORMAT_RAW in odCURR_OUTPUT_FORMAT_RAW_CHECK:
@@ -33,6 +42,11 @@ class Output():
             
         
     def fPrintReport(self,sOutputFormat):
+        """
+
+        :param sOutputFormat:
+        :return:
+        """
         #for sKey,dResultBlocks in self.ddReports.items():
         writer=pandas.ExcelWriter(sOutputFormat+".xlsx")
         for resultblockTemp in self.ddReports[sOutputFormat].values():

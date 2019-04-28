@@ -18,7 +18,11 @@ from mOutputFormatTable import OutputFormatTable
 from pathlib import Path
 import collections
 #import re
+
 class Input():
+    """
+
+    """
     #lscMultiInputTypes=list(Table.lscAllTableTypes)# shallow copy is enough
     #lscMultiInputTypes.append("Script")#"GenTable","MPFTable","Script"
     lscMultiInputTypes=["MPFTable","GenTable","Script"] # do not count key gen tables as their unique property
@@ -35,7 +39,13 @@ class Input():
                  dsKeyGenTablesDirs={
                  "ProdTable":".\\Prod\\PROD.txt",
                  "ScenTable":".\\Prod\\scen.txt",
-                 "GlobalTable":".\\Prod\\GLOBAL.txt"}):                
+                 "GlobalTable":".\\Prod\\GLOBAL.txt"}):
+        """
+
+        :param dsMultiInputDirs:
+        :param dsSingleInputDirs:
+        :param dsKeyGenTablesDirs:
+        """
                   
         
         self._pThisModuleDir = Path(__file__).parent
@@ -82,9 +92,18 @@ class Input():
         
         #self.fLoadAllInputs(dAllInputs)        
         
-    def fodLoadAllInputs(self,sInputType,sAllInputDir,bIfOnlyOneFile=False,*args_to_input,**kwargs_to_input)->collections.OrderedDict:  
-       pAllInputDir=Path(sAllInputDir) 
-       #     
+    def fodLoadAllInputs(self,sInputType,sAllInputDir,bIfOnlyOneFile=False,*args_to_input,**kwargs_to_input)->collections.OrderedDict:
+        """
+
+        :param sInputType:
+        :param sAllInputDir:
+        :param bIfOnlyOneFile:
+        :param args_to_input:
+        :param kwargs_to_input:
+        :return:
+        """
+       pAllInputDir=Path(sAllInputDir)
+
        odTemp=collections.OrderedDict()#
        if bIfOnlyOneFile and not sAllInputDir.endswith(".txt"):
            raise Exception("KeyGenTable must has only one instance!")            
@@ -127,6 +146,11 @@ class Input():
             return "EOF"
     
     def fd_sNextMPFRow(self):
+        """
+
+        :param self:
+        :return:
+        """
         if self.diCurrInput["MPFTable"]==-1:
             mpfCurr=self.fd_sNextInput("MPFTable")
         else:

@@ -19,6 +19,16 @@ import pprint
       import re 
       '''
 class InputPrototype(object):
+    """
+    The abstract parent class for all Tables and Scripts
+    Reads XML files - source files containing assumptions and records of the model
+
+    Attributes:
+        _pThisModuleDir
+        _xmlRoot
+        BODY
+    """
+
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
     def __init__(self,sFilePath=".\\Table.txt"): #sTableDir=".",
@@ -29,9 +39,12 @@ class InputPrototype(object):
         #print(self._sThisModuleDir)
         #print(fileDir)
         #self._pTableDir = (self._pThisModuleDir/sTableDir).resolve()
-        #print(self._sTableDir)        
+        #print(self._sTableDir)
+
+        # grabbing xml file to use as root
         self._pFilePath=Path(sFilePath)  
         self._xmlRoot = xmlET.parse(self._pFilePath).getroot()
+        # setting self._fXMLFindChildOutputList with xml values from xml root
         for xmlChild in self._xmlRoot:#list(zip(Table._lsXmlAttrs,Table._lsXmlTypes)):
             if xmlChild.tag != "BODY":
                 #print(xmlChild.tag)
@@ -45,9 +58,20 @@ class InputPrototype(object):
                                                           sType=xmlChild.attrib["type"],
                                                           bIsArray=bIsArray)) 
         self.BODY=self._fXMLReadBody() 
-        
+
+
+
     def _fXMLFindChildOutputList(self,sChildName,sType="str", bIsArray=True, #xmlRoot=None,
                             sStripChars=r"\s+",sSplitChars=","):
+        """
+        Returns xml children grabbed from xmlRoot and cleaned with mUtils.fGetTypeFromBuiltins()
+        :param sChildName: the child to grab from xml root
+        :param sType: type of the child, defaults to "str"
+        :param bIsArray: boolean value indiciating if child is array
+        :param sStripChars: characters to strip from each element in xml
+        :param sSplitChars: characters to split xml elements
+        :return: Temp, a list of the types of the objects contained in xml file
+        """
         sTemp=self._xmlRoot.find(sChildName).text 
         #fType=globals()["__builtins__"][sType]
         fType=mUtils.fGetTypeFromBuiltins(sType)

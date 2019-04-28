@@ -5,7 +5,11 @@ Created on Mon Mar 25 15:52:12 2019
 @author: User
 """
 from mVariable import Variable
+
 def fGetTypeFromBuiltins(sType:str):
+    """
+    Returns the type of the variable with name sType
+    """
     #used in both mTable and mGenTable
     try:
         return globals()["__builtins__"][sType]
