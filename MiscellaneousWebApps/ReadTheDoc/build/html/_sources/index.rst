@@ -3,24 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ActModel's documentation!
+Welcome to ActModel's documentation test!
 ====================================
 
 .. toctree::
-   :caption: Contents:
    :maxdepth: 2
-   :titlesonly:
-   
-   license
-   Documentations/content_for_codes_doc
-   
+   :caption: Contents:
 
 
 
 Indices and tables
 ==================
-
+* :ref:`license`
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-* :doc:`license <license>`

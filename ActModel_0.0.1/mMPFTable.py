@@ -9,6 +9,7 @@ import sys,os
 from mTable import Table
 import pandas as pandas
 from io import StringIO
+import re
 #import pandas
 '''
         from pathlib import Path
@@ -32,7 +33,7 @@ class MPFTable(Table):
         #import pandas        
         # from io import StringIO
        # print("gg")
-        sioBody=StringIO(self._xmlRoot.find("BODY").text.strip())
+        sioBody=StringIO(re.sub(r"\t+","",self._xmlRoot.find("BODY").text).strip())
         self.BODY=pandas.read_csv(sioBody,sep=",",header=None,names=self.HEADINGS)
         #print(self.BODY)
         return self.BODY
