@@ -7,7 +7,11 @@ import pandas
 import itertools
 class ResultBlock(object):
     '''
-    OutputGpInd, RangeInd, VarInd
+	This class's instance contains data calculated from VarNameSpace, after calling fRunModel(). 
+	Its self.dfResults have 3 major dimensions, namely OutputGpInd, RangeInd, VarInd. 
+	OutputGpInd: Outputformat keys, which are tuples defined in OutputFormatTable class instance.
+	RangeInd: Values for Parameters of Variables. e.g. t=0, or t=10
+	VarInd: Names of Variables
     '''
     
     def __init__(self,ltOutputGpInd,ltRangeInd,lsRangeIndNames): 

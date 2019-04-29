@@ -9,6 +9,9 @@ import inspect
 import types
 #import pandas
 class Variable(object):
+	"""
+	This class represent a basic unit of calculation while running the model. Its most important member variable is self._fFunction.
+	"""
     def __init__(self,sName="",sFunction="",sModule="",sProduct="",sAccumulation=""):
         self.sName=sName
         self.sFunction=sFunction

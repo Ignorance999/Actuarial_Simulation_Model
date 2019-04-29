@@ -21,7 +21,7 @@ import collections
 
 class Input():
     """
-
+	This class will manage all the inputs. It contains all the Tables and Scripts. During its initilization, these Tables and Scripts are loaded.
     """
     #lscMultiInputTypes=list(Table.lscAllTableTypes)# shallow copy is enough
     #lscMultiInputTypes.append("Script")#"GenTable","MPFTable","Script"

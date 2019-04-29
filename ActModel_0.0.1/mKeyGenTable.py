@@ -4,18 +4,14 @@ Created on Sat Mar 16 15:33:14 2019
 
 @author: User
 """
-#import xml.etree.ElementTree as xmlET
 import sys,os
 import mUtils
 from mGenTable import GenTable
-'''
-        from pathlib import Path
-        import xml.etree.ElementTree as xmlET
-      import re 
-      '''
+
 class KeyGenTable(GenTable):
-  
-    
+	"""
+	This class will only allow one pre-determined key column for the table.
+    """ 
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
         
@@ -39,4 +35,3 @@ class KeyGenTable(GenTable):
         if type(Key)=="str":
             Key=tuple(Key)
         return self.BODY[Key][sColName]
-    #t=GenTable()    

@@ -8,13 +8,14 @@ import itertools
 import collections
 from mUtils import fdecCreateVariable    
 import mUtils
-#dVarRanges={"t":range(0,10)}
-#def fSetDimensions(dVarRanges={"t":range(0,10)}):
-#    dVarRanges
-#    pass
+
 INPUT=None
 GLOBAL_SETTINGS=None
 OUTPUT=None
+"""
+This module is the namespace for model calculation. Variables, Input, GlobalSettings and Output class instances will be loaded here for running the model. It will also generate the results and pass them to Output.
+"""
+
 '''
 GLOBAL_SETTINGS=collections.namedtuple("GlobalSettings",["odDimVarRanges","odOutputFormats","odReportVars"],verbose=False)\
                 (odDimVarRanges=collections.OrderedDict([("t",range(0,100)),

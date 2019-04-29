@@ -17,6 +17,9 @@ import re
       import re 
       '''
 class MPFTable(Table):
+	"""
+	This class read data from XML file and generate a dataframe containing records for different policies.
+	"""
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
     def __init__(self,*args,**kwargs): #sTableDir=".",        
@@ -52,7 +55,5 @@ class MPFTable(Table):
             self.iCurrMPFRowIndex=-1
             return "EOF"
     
-    #def fd_sNextMPFRow(self):
-    #    return next(self.BODY.iterrows())
         
 #w=MPFTable(sFilePath=".\\MPF\\MPF.txt")    

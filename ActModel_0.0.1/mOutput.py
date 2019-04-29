@@ -10,7 +10,7 @@ import re
 import pandas
 class Output():
     """
-
+	This class controls the output of the model. It contains ResultBlocks, which are multi-dimensional dataframes. It also can print results into excel files.
     """
     def __init__(self,inputTemp,globalsettingsTemp):
         self._Input=inputTemp
@@ -29,10 +29,7 @@ class Output():
         :return:
         """
         tFuncArgs=tuple(varTemp.lsFuncArgs)
-        
-        #for skey,dCURR_OUTPUT_FORMAT_RAW in odCURR_OUTPUT_FORMAT_RAW_CHECK:
-            
-        #odCURR_OUTPUT_FORMAT_CHECK
+
         for sKey,dResultBlocks in self.ddReports.items():  
             if tFuncArgs not in dResultBlocks.keys():
                 dResultBlocks[tFuncArgs]=ResultBlock(list(self._OutputFormatTable.odOutputFormats[sKey]),
@@ -47,7 +44,6 @@ class Output():
         :param sOutputFormat:
         :return:
         """
-        #for sKey,dResultBlocks in self.ddReports.items():
         writer=pandas.ExcelWriter(sOutputFormat+".xlsx")
         for resultblockTemp in self.ddReports[sOutputFormat].values():
             resultblockTemp.fdfResultsIndToStr().to_excel(writer,sheet_name=re.sub("[\[\]]","#",str(resultblockTemp.lsRangeIndNames)))

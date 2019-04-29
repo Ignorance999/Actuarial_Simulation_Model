@@ -17,8 +17,10 @@ import collections
       import re 
       '''
 class ReportVarTable(Table):
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
+	"""
+	This class reads data from XML files. It contains several groups of variables. 
+	"""
+	
     def __init__(self,*args,**kwargs): #sTableDir=".",        
         #super().__init__(self,sTableName=sTableName)   
         self.odReportVars=collections.OrderedDict()#ALIAS FOR SELF.BODY

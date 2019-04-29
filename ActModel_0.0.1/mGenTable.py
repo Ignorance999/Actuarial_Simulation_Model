@@ -9,12 +9,12 @@ import sys,os
 import mUtils
 from mTable import Table
 #from collections import namedtuple
-'''
-        from pathlib import Path
-        import xml.etree.ElementTree as xmlET
-      import re 
-      '''
+
 class GenTable(Table):
+	"""
+	It will read data from XML file, and generate a dictionary representing a lookup table. The keys can be multi-dimensional, i.e. there may be more than 1 key column.
+	"""
+	
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
     def __init__(self,*args,**kwargs): #sTableDir=".",        
