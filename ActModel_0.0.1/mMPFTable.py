@@ -17,9 +17,9 @@ import re
       import re 
       '''
 class MPFTable(Table):
-	"""
-	This class read data from XML file and generate a dataframe containing records for different policies.
-	"""
+    """
+    This class read data from XML file and generate a dataframe containing records for different policies.
+    """
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
     def __init__(self,*args,**kwargs): #sTableDir=".",        
@@ -35,10 +35,8 @@ class MPFTable(Table):
         
         #import pandas        
         # from io import StringIO
-       # print("gg")
         sioBody=StringIO(re.sub(r"\t+","",self._xmlRoot.find("BODY").text).strip())
         self.BODY=pandas.read_csv(sioBody,sep=",",header=None,names=self.HEADINGS)
-        #print(self.BODY)
         return self.BODY
     
     

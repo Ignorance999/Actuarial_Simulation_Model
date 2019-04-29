@@ -93,15 +93,15 @@ class Input():
         #self.fLoadAllInputs(dAllInputs)        
         
     def fodLoadAllInputs(self,sInputType,sAllInputDir,bIfOnlyOneFile=False,*args_to_input,**kwargs_to_input)->collections.OrderedDict:
-        """
-
-        :param sInputType:
-        :param sAllInputDir:
-        :param bIfOnlyOneFile:
-        :param args_to_input:
-        :param kwargs_to_input:
-        :return:
-        """
+       """
+       Called from __init__. It is to load specified tables/scripts from sAllInputDir
+       :param sInputType: the class of the table. e.g. GenTable
+       :param sAllInputDir: the file/folder address of the table(s)
+       :param bIfOnlyOneFile: if the address of file represents only one XML file.
+       :param args_to_input: this argument is transferred to the __init__ function of sInputType class
+       :param kwargs_to_input: this argument is transferred to the __init__ function of sInputType class
+       :return: odTemp: an OrderedDict containing different instances with the type sInputType
+       """
        pAllInputDir=Path(sAllInputDir)
 
        odTemp=collections.OrderedDict()#
@@ -147,9 +147,9 @@ class Input():
     
     def fd_sNextMPFRow(self):
         """
-
+        move the pointer of policy records to next record (controlled by diCurrInput["MPFTable"] and mpfCurr.fd_sNextMPFRow())
         :param self:
-        :return:
+        :return: a dictionary representing a policy record
         """
         if self.diCurrInput["MPFTable"]==-1:
             mpfCurr=self.fd_sNextInput("MPFTable")

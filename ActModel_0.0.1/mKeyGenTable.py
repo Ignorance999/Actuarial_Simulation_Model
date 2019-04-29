@@ -9,15 +9,12 @@ import mUtils
 from mGenTable import GenTable
 
 class KeyGenTable(GenTable):
-	"""
-	This class will only allow one pre-determined key column for the table.
-    """ 
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
-        
-   #Only 1 key
-    #_csRestriction=None
-    def __init__(self,sRestriction=None,*args,**kwargs): #sTableDir=".",        
+    """
+    This class will only allow one pre-determined key column for the table.
+    """    
+    def __init__(self,sRestriction=None,*args,**kwargs): 
+		
+		#sTableDir=".",        
         #super().__init__(self,sTableName=sTableName)
           
         super().__init__(*args,**kwargs)
@@ -32,6 +29,12 @@ class KeyGenTable(GenTable):
             raise Exception("KeyGenTable's self._srestriction is not equal to KEYCOLS")
     
     def fReadTable(self,Key,sColName):
+        """
+        self.BODY is a dict, generated from inherited self._fXMLReadBody
+        :param Key: can be a string or a tuple containing a single element.
+        :param sColName: The name of the value you are looking for.
+        :return: the corresponding value in the lookup table
+        """  
         if type(Key)=="str":
             Key=tuple(Key)
         return self.BODY[Key][sColName]

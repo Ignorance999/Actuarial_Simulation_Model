@@ -17,9 +17,9 @@ import collections
       import re 
       '''
 class ReportVarTable(Table):
-	"""
-	This class reads data from XML files. It contains several groups of variables. 
-	"""
+    """
+    This class reads data from XML files. It contains several groups of variables. 
+    """
 	
     def __init__(self,*args,**kwargs): #sTableDir=".",        
         #super().__init__(self,sTableName=sTableName)   

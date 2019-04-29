@@ -17,9 +17,9 @@ import types
       import re 
       '''
 class AccumTable(Table):
-	"""
-	This class reads data from XML files. It contains several groups of product names. An accumulation means a group of products. 
-	"""
+    """
+    This class reads data from XML files. It contains several groups of product names. An accumulation means a group of products. 
+    """
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
     def __init__(self,*args,**kwargs): #sTableDir=".",        

@@ -27,15 +27,14 @@ class ResultBlock(object):
         
     def fAddRow(self,dResultForPol):
         pass
-        #srTemp=pandas.Series(dResultForPol,index="ff")
-        #self.dfResults=self.dfResults.append(dResultForPol,ignore_index=True)
     
-    def fAddColumn(self,varTemp,odCURR_OUTPUT_FORMAT_CHECK_SINGLE):#change this name later
+    def fAddColumn(self,varTemp,odCURR_OUTPUT_FORMAT_CHECK_SINGLE):
+		#TODO:change this name later
         #print([dVarCache[tt[1]] for tt in self.ltCombinedInd])
         #print([odCURR_OUTPUT_FORMAT_CHECK_SINGLE[tt[0]] for tt in self.ltCombinedInd])
         lResult=[varTemp._dCache[tt[1]] if odCURR_OUTPUT_FORMAT_CHECK_SINGLE[tt[0]] else 0 for tt in self.ltCombinedInd]
         self.dfResults[varTemp.sName]=lResult
-        #print(lResult)
+
         
     def fdfResultsIndToStr(self):
         dfTemp=self.dfResults.copy(deep=True)

@@ -25,22 +25,6 @@ class InputPrototype(object):
 
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]
-    def __init__(self,sFilePath=".\\Table.txt"): #sTableDir=".",
-        #KEYCOL STARTS AT 0
-        #from pathlib import Path
-        # import xml.etree.ElementTree as xmlET
-        self._pThisModuleDir = Path(__file__).parent
-        #print(self._sThisModuleDir)
-        #print(fileDir)
-        #self._pTableDir = (self._pThisModuleDir/sTableDir).resolve()
-        #print(self._sTableDir)
-
-        # grabbing xml file to use as root
-        self._pFilePath=Path(sFilePath)
-        self._xmlRoot = xmlET.parse(self._pFilePath).getroot()
-        # setting self._fXMLFindChildOutputList with xml values from xml root
-        for xmlChild in self._xmlRoot:#list(zip(Table._lsXmlAttrs,Table._lsXmlTypes)):
-=======
 
     def __init__(self,sFilePath=".\\test_input\\Table.txt"):
         try:
@@ -51,7 +35,8 @@ class InputPrototype(object):
 
 
         self._pFilePath=Path(sFilePath)
-        self._xmlRoot = xmlET.parse(self._pFilePath).getroot()
+        self._xmlRoot = xmlET.parse(self._pFilePath).getroot()# grabbing xml file to use as root
+		# setting self._fXMLFindChildOutputList with xml values from xml root
         for xmlChild in self._xmlRoot:
             if xmlChild.tag != "BODY":
                 if "is_array" in xmlChild.attrib:

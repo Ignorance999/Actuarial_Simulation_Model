@@ -20,7 +20,7 @@ class Process(object):
         self._Input=Input()
         self._GlobalSettings=GlobalSettings(self._Input)
         self._Output=Output(self._Input,self._GlobalSettings)
-		self.odAllVariables=collections.OrderedDict() # a member variable containing Variable class instances.
+        self.odAllVariables=collections.OrderedDict() # a member variable containing Variable class instances.
         for scrTemp in self._Input.dAllInputs["Script"].values():
             if bool(set(scrTemp.BODY) & set(self.odAllVariables)):
                 raise Exception("Repeated definition of variables!:"+ ",".join(set(scrTemp.BODY) & set(self.odAllVariables)))
@@ -38,13 +38,15 @@ class Process(object):
         
     
     def fRunModel(self):
-		"""
-		This function is called to run the entire model (to calculate the specified Variables in mVarNameSpace)
-		"""
+        """
+        This function is called to run the entire model (to calculate the specified Variables in mVarNameSpace)
+        """
         self.mVarNameSpace.fRunModel()
        
     def fPrintReport(self,sOutputFormat):
-		
+        """
+        Print report using the specified name of OutputFormat 
+        """
         self._Output.fPrintReport(sOutputFormat)
         
     def fPrintAllReports(self):

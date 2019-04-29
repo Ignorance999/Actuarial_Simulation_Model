@@ -23,7 +23,7 @@ class Output():
         
     def fRecordPolResults(self,varTemp,odCURR_OUTPUT_FORMAT_RAW_CHECK):
         """
-
+		Called from mVarNameSpace.fRunModel. Use ResultBlocks to record the results of the model.
         :param varTemp:
         :param odCURR_OUTPUT_FORMAT_RAW_CHECK:
         :return:
@@ -40,7 +40,7 @@ class Output():
         
     def fPrintReport(self,sOutputFormat):
         """
-
+		Generate excel files from ResultBlocks
         :param sOutputFormat:
         :return:
         """

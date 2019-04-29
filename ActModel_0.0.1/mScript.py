@@ -10,9 +10,9 @@ from mInputPrototype import InputPrototype
 from mVariable import Variable
 
 class Script(InputPrototype):
-	"""
-	This class will read the scripts and turn them into a dict containing Variables.
-	"""
+    """
+    This class will read the scripts and turn them into a dict containing Variables.
+    """
     def __init__(self,*args,**kwargs):
        #self.BODY is dict of Variable
        self.dVariables={}#ALIAS FOR SELF.BODY
@@ -21,7 +21,9 @@ class Script(InputPrototype):
         
         
     def _fXMLReadBody(self)->dict:
-        #self.BODY is dict of Variable
+        """
+        self.BODY is dict of Variables
+        """
         dTemp={}
         for xmlVar in self._xmlRoot.find("BODY").findall("VARIABLE"):  
 

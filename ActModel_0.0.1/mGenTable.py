@@ -11,9 +11,9 @@ from mTable import Table
 #from collections import namedtuple
 
 class GenTable(Table):
-	"""
-	It will read data from XML file, and generate a dictionary representing a lookup table. The keys can be multi-dimensional, i.e. there may be more than 1 key column.
-	"""
+    """
+    It will read data from XML file, and generate a dictionary representing a lookup table. The keys can be multi-dimensional, i.e. there may be more than 1 key column.
+    """
 	
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
@@ -58,6 +58,12 @@ class GenTable(Table):
         return lTemp
         
     def fReadTable(self,Key,sColName):
+        """
+        self.BODY is a dict
+        :param Key: can be a string or a tuple containing a single element.
+        :param sColName: The name of the value you are looking for.
+        :return: the corresponding value in the lookup table
+        """
         return self.BODY[Key][sColName]
     
     def flAllKeys(self,bAutoSimplify=True):
