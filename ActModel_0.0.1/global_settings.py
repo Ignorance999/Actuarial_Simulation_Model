@@ -15,15 +15,19 @@ ntGlobalSettings=collections.namedtuple("GlobalSettings",["odDimVarRanges","odOu
                 odOutputFormats=INPUT.dAllInputs["OutputFormatTable"].BODY,
                 odReportVars=INPUT.dAllInputs["ReportVarTable"].BODY)#this parameter can be customized later
 '''
+
+
 class GlobalSettings(object):
-    def __init__(self,inputTemp):
-        self._Input=inputTemp
-        self.odDimVarRanges=collections.OrderedDict([("t",range(0,100)),
-                                                         ("k",range(3,500)),
-                                                         ("s",range(4,6))])
-        
+    def __init__(self, inputTemp):
+        self._Input = inputTemp
+        self.odDimVarRanges = collections.OrderedDict([("t", range(0, 100)),
+                                                       ("k", range(3, 500)),
+                                                       ("s", range(4, 6))])
+
        # print(next(iter(self._Input.dAllInputs["OutputFormatTable"].values())))
-        self.odOutputFormatsRaw=fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).BODY
-        self.odOutputFormats=fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).odOutputFormats
-        self.odReportVars=fGetFirstElementOrderedDict(self._Input.dAllInputs["ReportVarTable"]).BODY
-        
+        self.odOutputFormatsRaw = fGetFirstElementOrderedDict(
+            self._Input.dAllInputs["OutputFormatTable"]).BODY
+        self.odOutputFormats = fGetFirstElementOrderedDict(
+            self._Input.dAllInputs["OutputFormatTable"]).odOutputFormats
+        self.odReportVars = fGetFirstElementOrderedDict(
+            self._Input.dAllInputs["ReportVarTable"]).BODY
