@@ -4,11 +4,10 @@ Created on Sat Mar 16 15:33:14 2019
 
 @author: User
 """
-import sys,os
 import re
 from pathlib import Path
 import xml.etree.ElementTree as xmlET
-import mUtils
+from utils import fGetTypeFromBuiltins
 import pprint
 from directories import test_input_table_path, default_table_path
 
@@ -61,7 +60,7 @@ class InputPrototype(object):
         :return: Temp, a list of the types of the objects contained in xml file
         """
         sTemp=self._xmlRoot.find(sChildName).text
-        fType=mUtils.fGetTypeFromBuiltins(sType)
+        fType = fGetTypeFromBuiltins(sType)
         if bIsArray:
             lsTemp=sTemp.split(sSplitChars)
             lsTemp1=[re.sub(sStripChars,"",s) for s in lsTemp]
