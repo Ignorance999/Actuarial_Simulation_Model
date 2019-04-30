@@ -4,20 +4,11 @@ Created on Sat Mar 16 15:33:14 2019
 
 @author: User
 """
-#import xml.etree.ElementTree as xmlET
-import sys,os
-from mTable import Table
-import pandas as pandas
-from io import StringIO
-import collections
-import itertools
+from table import Table
+from collections import OrderedDict
+from itertools import product as cartesian_product
 from directories import test_output_table_path
-#import pandas
-'''
-        from pathlib import Path
-        import xml.etree.ElementTree as xmlET
-      import re 
-      '''
+
 class OutputFormatTable(Table):
     """
     This class reads data from XML files. It determines the classification of different policies, and how the policies aggregate. The ResultBlock and hence the real outputs will use information from OutputFormatTable.
@@ -42,7 +33,7 @@ class OutputFormatTable(Table):
         return super()._fXMLFindChildOutputList(*args,**kwargs)
     
     def _fXMLReadBody(self):
-        odTemp=collections.OrderedDict()
+        odTemp = OrderedDict()
         for xmlTemp1 in self._xmlRoot.find("BODY").findall("OUTPUT_FORMAT"):
             lTemp=[]
             for xmlTemp2 in xmlTemp1.findall("OUTPUT_DIM"):
@@ -64,7 +55,7 @@ class OutputFormatTable(Table):
                 ('first', 'PRODUCT', 'PROD2'),
                 ('second', 'CRITERIA', 'bTemp')])])}
         '''  
-        odAllDims=collections.OrderedDict()
+        odAllDims = OrderedDict()
         for sKey,lTemp in self.BODY.items():
             dDims={}            
             for tTemp in lTemp:
@@ -75,7 +66,7 @@ class OutputFormatTable(Table):
                     dDims[tTemp[0]]=[tTemp]
                 '''{'first': [('first', 'ACCUMULATION', 'ACC1'), ('first', 'PRODUCT', 'PROD2')],
                     'second': [('second', 'CRITERIA', 'bTemp')]}'''    
-                lAllDims=list(itertools.product(*[autoTemp for autoTemp in dDims.values()]))
+                lAllDims=list(cartesian_product(*[autoTemp for autoTemp in dDims.values()]))
                 '''[(('first', 'ACCUMULATION', 'ACC1'), ('second', 'CRITERIA', 'bTemp')),
                     (('first', 'PRODUCT', 'PROD2'), ('second', 'CRITERIA', 'bTemp'))]'''
             odAllDims[sKey]=lAllDims  
