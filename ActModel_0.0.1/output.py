@@ -4,10 +4,11 @@ Created on Sat Mar 16 12:40:33 2019
 
 @author: User
 """
-from mResultBlock import ResultBlock 
-import mUtils
+from result_block import ResultBlock 
+from utils import fGetFirstElementOrderedDict
 import re
 import pandas
+
 class Output():
     """
 	This class controls the output of the model. It contains ResultBlocks, which are multi-dimensional dataframes. It also can print results into excel files.
