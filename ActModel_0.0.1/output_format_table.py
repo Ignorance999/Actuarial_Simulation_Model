@@ -11,6 +11,7 @@ import pandas as pandas
 from io import StringIO
 import collections
 import itertools
+from directories import test_output_table_path
 #import pandas
 '''
         from pathlib import Path
@@ -117,4 +118,4 @@ class OutputFormatTable(Table):
             dAllTemp[sKey]=dTemp                    
         return dAllTemp        
     
-#a=OutputFormatTable(".\\test_output\\out1.txt")
+#a=OutputFormatTable(test_output_table_path)

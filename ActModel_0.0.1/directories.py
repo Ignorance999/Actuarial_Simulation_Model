@@ -7,7 +7,10 @@ import os
 def format_path(win_path):
     return os.path.join(win_path.split("\\"))
 
+# accumm_table.py
 accumm_test_path   = format_path(".\\test_output\\accum.txt")
+
+# gen_table.py
 gentable_test_path = format_path(".\\test_input\\Table.txt")
 
 # input.py directories
@@ -25,6 +28,9 @@ prod_table_path   = format_path(".\\Prod\\PROD.txt")
 scen_table_path   = format_path(".\\Prod\\scen.txt")
 global_table_path = format_path(".\\Prod\\GLOBAL.txt")
 
-
+# input_prototype.py
 test_input_table_path = format_path(".\\test_input\\Table.txt")
 default_table_path = format_path(".\\Table.txt")
+
+# output_format_table.py
+test_output_table_path = format_path(".\\test_output\\out1.txt")
