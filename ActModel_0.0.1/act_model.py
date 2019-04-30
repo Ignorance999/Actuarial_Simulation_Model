@@ -4,14 +4,14 @@ Created on Sat Mar 16 12:39:33 2019
 
 @author: User
 """
-import mInput
-import mOutput
-import mProcess
+from Input import Input
+from Output import Output
+from Process import Process
 class ActModel:    
     def __init__(self):
-        self._Input=mInput.Input()
-        self._Output=mOutput.Output()
-        self._Process=mProcess.Process()
+        self._Input = Input()
+        self._Output = Output()
+        self._Process = Process()
         print(self._Input.__dict__)
     
     
