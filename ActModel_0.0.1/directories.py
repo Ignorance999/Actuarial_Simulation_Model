@@ -5,7 +5,7 @@ and replaces the path separator with an OS-specific one
 import os
 
 def format_path(win_path):
-    return os.path.join(win_path.split("\\"))
+    return os.path.join(*win_path.split("\\"))
 
 # accumm_table.py
 accumm_test_path   = format_path(".\\test_output\\accum.txt")

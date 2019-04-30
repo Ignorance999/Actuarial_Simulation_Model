@@ -17,6 +17,7 @@ from output_format_table import OutputFormatTable
 from pathlib import Path
 from collections import OrderedDict
 import directories as dirs
+import os
 
 class Input():
     """
@@ -105,8 +106,11 @@ class Input():
 
        odTemp = OrderedDict()
        if bIfOnlyOneFile and not sAllInputDir.endswith(".txt"):
-           raise Exception("KeyGenTable must has only one instance!")            
-       lpFilePaths=[pAllInputDir] if sAllInputDir.endswith(".txt") else pAllInputDir.glob("**\*.txt")       
+           raise Exception("KeyGenTable must has only one instance!")
+       txt_pattern = os.path.join(".", "**", "*.txt")
+       print(txt_pattern)
+       lpFilePaths=[pAllInputDir] if sAllInputDir.endswith(".txt") else pAllInputDir.glob(txt_pattern)
+       #lpFilePaths = [filepath.absolute() for filepath in lpFilePaths]
        #print([i for i in lpFilePaths])  
        for pFilePath in lpFilePaths:
            sTableType=Table.fcGetClassType(str(pFilePath))
