@@ -3,8 +3,8 @@
 Created on Mon Mar 25 15:52:12 2019
 
 """
+from itertools import product as cartesian_product
 import pandas
-import itertools
 class ResultBlock(object):
     '''
 	This class's instance contains data calculated from VarNameSpace, after calling fRunModel(). 
@@ -18,7 +18,7 @@ class ResultBlock(object):
         self.ltOutputGpInd=ltOutputGpInd#Outputformattable->odOutputFormats
         self.ltRangeInd=ltRangeInd
         self.lsRangeIndNames=lsRangeIndNames
-        self.ltCombinedInd=list(itertools.product(ltOutputGpInd,ltRangeInd))
+        self.ltCombinedInd=list(cartesian_product(ltOutputGpInd,ltRangeInd))
 
         indexTemp=pandas.MultiIndex.from_tuples(self.ltCombinedInd)
         
