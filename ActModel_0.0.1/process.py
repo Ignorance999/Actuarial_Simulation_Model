@@ -4,12 +4,12 @@ Created on Sat Mar 16 12:40:33 2019
 
 @author: User
 """
-from mInput import Input
-from mOutput import Output
-import pprint
-import collections
-import importlib
-from mGlobalSettings import GlobalSettings
+from input import Input
+from output import Output
+from collections import OrderedDict
+from importlib import import_module
+from global_settings import GlobalSettings
+
 class Process(object):
     """
 	This class is to manage all the internal calculations of this model. 
@@ -20,14 +20,14 @@ class Process(object):
         self._Input=Input()
         self._GlobalSettings=GlobalSettings(self._Input)
         self._Output=Output(self._Input,self._GlobalSettings)
-        self.odAllVariables=collections.OrderedDict() # a member variable containing Variable class instances.
+        self.odAllVariables = OrderedDict() # a member variable containing Variable class instances.
         for scrTemp in self._Input.dAllInputs["Script"].values():
             if bool(set(scrTemp.BODY) & set(self.odAllVariables)):
                 raise Exception("Repeated definition of variables!:"+ ",".join(set(scrTemp.BODY) & set(self.odAllVariables)))
             else:
                 self.odAllVariables.update(scrTemp.BODY)
         
-        self.mVarNameSpace=importlib.import_module("mVarNameSpace")
+        self.mVarNameSpace = import_module("var_name_space")
         for varTemp in self.odAllVariables.values():
            varTemp.fSetfFunction(self.mVarNameSpace)#load the function into the globals of the module
            setattr(self.mVarNameSpace,varTemp.sName,varTemp)#replace the name as a Variable instead of a function           
