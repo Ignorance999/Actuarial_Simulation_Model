@@ -34,7 +34,7 @@ class InputPrototype(object):
 
 
         self._pFilePath=Path(sFilePath)
-        self._xmlRoot = xmlET.parse(self._pFilePath).getroot()# grabbing xml file to use as root
+        self._xmlRoot = xmlET.parse(str(self._pFilePath)).getroot()# grabbing xml file to use as root
 		# setting self._fXMLFindChildOutputList with xml values from xml root
         for xmlChild in self._xmlRoot:
             if xmlChild.tag != "BODY":
@@ -80,7 +80,7 @@ class InputPrototype(object):
     @classmethod
     def fcGetClassType(cls,sFilePath=default_table_path):
         pFilePath=Path(sFilePath)
-        xmlRoot = xmlET.parse(pFilePath).getroot()
+        xmlRoot = xmlET.parse(str(pFilePath)).getroot()
         sTableType=xmlRoot.find("CLASS_TYPE").text
         return sTableType
 

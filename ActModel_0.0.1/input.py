@@ -108,16 +108,11 @@ class Input():
        if bIfOnlyOneFile and not sAllInputDir.endswith(".txt"):
            raise Exception("KeyGenTable must has only one instance!")
        txt_pattern = os.path.join(".", "**", "*.txt")
-       print(txt_pattern)
        lpFilePaths=[pAllInputDir] if sAllInputDir.endswith(".txt") else pAllInputDir.glob(txt_pattern)
-       #lpFilePaths = [filepath.absolute() for filepath in lpFilePaths]
-       #print([i for i in lpFilePaths])  
        for pFilePath in lpFilePaths:
            sTableType=Table.fcGetClassType(str(pFilePath))
            if sTableType==sInputType:
                fTableType=globals()[sInputType]
-              # print(fTableType)
-               #print(str(pFilePath))
                tblTemp=fTableType(sFilePath=str(pFilePath),*args_to_input,**kwargs_to_input)
                if tblTemp.NAME not in odTemp:
                    odTemp[tblTemp.NAME]=tblTemp

@@ -25,7 +25,7 @@ output_format_test_path = format_path(".\\test_output\\out1.txt")
 
 # input.py keygen-tables paths
 prod_table_path   = format_path(".\\Prod\\PROD.txt")
-scen_table_path   = format_path(".\\Prod\\scen.txt")
+scen_table_path   = format_path(".\\Prod\\SCEN.txt")
 global_table_path = format_path(".\\Prod\\GLOBAL.txt")
 
 # input_prototype.py

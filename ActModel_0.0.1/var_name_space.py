@@ -58,7 +58,7 @@ def odCURR_OUTPUT_FORMAT_RAW_CHECK():
             sName=tTemp[2]
             #print("sName:" +sName)
             if sType=="ACCUMULATION":
-                bTemp=mUtils.fGetFirstElementOrderedDict(INPUT.dAllInputs["AccumTable"]).fCheckProdInAccum(sCURR_PRODUCT(),sName)
+                bTemp = fGetFirstElementOrderedDict(INPUT.dAllInputs["AccumTable"]).fCheckProdInAccum(sCURR_PRODUCT(),sName)
             elif sType=="PRODUCT":
                 bTemp=(sCURR_PRODUCT()==sName)
             elif sType=="CRITERIA":

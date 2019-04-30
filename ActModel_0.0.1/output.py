@@ -16,7 +16,7 @@ class Output():
     def __init__(self,inputTemp,globalsettingsTemp):
         self._Input=inputTemp
         self._GlobalSettings=globalsettingsTemp
-        self._OutputFormatTable=mUtils.fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"])
+        self._OutputFormatTable = fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"])
         self.ddReports={}#key is outputformat names
         for s in self._OutputFormatTable.odOutputFormats.keys():
             self.ddReports[s]={}
