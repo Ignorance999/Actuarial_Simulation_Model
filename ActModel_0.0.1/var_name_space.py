@@ -4,14 +4,13 @@ Created on Mon Mar 25 15:52:12 2019
 
 @author: User
 """
-import itertools
-import collections
-from mUtils import fdecCreateVariable    
-import mUtils
+from itertools import product as cartesian_product
+from collections import OrderedDict
+from utils import fdecCreateVariable, fGetFirstElementOrderedDict
 
-INPUT=None
-GLOBAL_SETTINGS=None
-OUTPUT=None
+INPUT = None
+GLOBAL_SETTINGS = None
+OUTPUT = None
 """
 This module is the namespace for model calculation. Variables, Input, GlobalSettings and Output class instances will be loaded here for running the model. It will also generate the results and pass them to Output.
 """
@@ -38,8 +37,8 @@ def fRunModel():
             globals()[sVar](**dArgs)
     '''  
     for sVar in lsVars:
-        odTemp=collections.OrderedDict({sKey:odVarRanges[sKey] for sKey in globals()[sVar].lsFuncArgs})
-        lDimVarsAllProds=list(itertools.product(*[autoTemp for autoTemp in odTemp.values()]))    
+        odTemp = OrderedDict({sKey:odVarRanges[sKey] for sKey in globals()[sVar].lsFuncArgs})
+        lDimVarsAllProds=list(cartesian_product(*[autoTemp for autoTemp in odTemp.values()]))    
         dArgs={}
         for tTemp in lDimVarsAllProds:
             for iInd,sArg in enumerate(odTemp.keys()):
@@ -50,7 +49,7 @@ def fRunModel():
 @fdecCreateVariable    
 def odCURR_OUTPUT_FORMAT_RAW_CHECK():
     #TODO: a bit hard to understand,more explanation later
-    odAllDimsCheck=collections.OrderedDict()
+    odAllDimsCheck = OrderedDict()
     for sKey,lValue in GLOBAL_SETTINGS.odOutputFormatsRaw.items():
         dTemp={}
         bTemp=False
