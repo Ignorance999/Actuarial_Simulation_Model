@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Sat Mar 16 15:33:14 2019
 
@@ -13,10 +12,7 @@ class MPFTable(Table):
     """
     This class read data from XML file and generate a dataframe containing records for different policies.
     """
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
-    def __init__(self,*args,**kwargs): #sTableDir=".",        
-        #super().__init__(self,sTableName=sTableName)        
+    def __init__(self,*args,**kwargs): #sTableDir=".",
         super().__init__(*args,**kwargs)
         self.iCurrMPFRowIndex=-1
         
@@ -24,8 +20,7 @@ class MPFTable(Table):
         return super()._fXMLFindChildOutputList(*args,**kwargs)
     
     def _fXMLReadBody(self)->pandas.DataFrame:
-        #self.BODY is dataframe
-        
+
         sioBody=StringIO(re.sub(r"\t+","",self._xmlRoot.find("BODY").text).strip())
         self.BODY=pandas.read_csv(sioBody,sep=",",header=None,names=self.HEADINGS)
         return self.BODY
@@ -45,4 +40,3 @@ class MPFTable(Table):
             return "EOF"
     
         
-#w=MPFTable(sFilePath=".\\MPF\\MPF.txt")    

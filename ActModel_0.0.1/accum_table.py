@@ -15,10 +15,7 @@ class AccumTable(Table):
     """
     This class reads data from XML files. It contains several groups of product names. An accumulation means a group of products. 
     """
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
-    def __init__(self,*args,**kwargs): #sTableDir=".",        
-        #super().__init__(self,sTableName=sTableName)   
+   def __init__(self,*args,**kwargs): #sTableDir=".",
         self.dAccumulations={}#ALIAS FOR SELF.BODY
         super().__init__(*args,**kwargs)
         
@@ -44,4 +41,3 @@ class AccumTable(Table):
         else:
             raise Exception("Error for AccumTable! s_lProd can only be s or l")
     
-#a=AccumTable(accumm_test_path)

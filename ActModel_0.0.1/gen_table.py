@@ -13,11 +13,8 @@ class GenTable(Table):
     It will read data from XML file, and generate a dictionary representing a lookup table. The keys can be multi-dimensional, i.e. there may be more than 1 key column.
     """
 	
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
-    def __init__(self,*args,**kwargs): #sTableDir=".",        
-        #super().__init__(self,sTableName=sTableName)        
-        super().__init__(*args,**kwargs)        
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
     def _fXMLFindChildOutputList(self,*args,**kwargs):                
         return super()._fXMLFindChildOutputList(*args,**kwargs)
     
@@ -25,23 +22,18 @@ class GenTable(Table):
         lsBody=self._fXMLFindChildOutputList(sChildName="BODY",
                                    sStripChars=r"[ \t]+",sSplitChars="\n")
         import re 
-        #lfType=[getattr(globals()["__builtins__"],s) for s in self.TYPE]        
-        #lfType=[globals()["__builtins__"][s] for s in self.TYPE]   
-        lfType=[fGetTypeFromBuiltins(s) for s in self.TYPE]        
+        lfType=[fGetTypeFromBuiltins(s) for s in self.TYPE]
         dTemp={}        
         for s in lsBody:
             if bool(re.search(".+",s)):
                 lTemp=s.split(",")        
-                #print(lTemp)
                 lTemp1=[f(s) for s,f in list(zip(lTemp,lfType))]
-                #print(lTemp1)
                 tKey=tuple(lTemp1[self.HEADINGS.index(s)] for s in self.KEYCOLS)
-                #print(tKey)
                 dValue={s:lTemp1[self.HEADINGS.index(s)] for s in self.HEADINGS
                                     if s not in self.KEYCOLS}
-                #print(tValue)
-                dTemp.update({tKey:dValue})        
+                dTemp.update({tKey:dValue})
         return dTemp
+
     def flGetEntireColumn(self,sColName):
         lTemp=[]
         if sColName in self.KEYCOLS:
@@ -73,4 +65,3 @@ class GenTable(Table):
                 lTemp.append(tTemp)
         return lTemp
                 
-#t=GenTable(gentable_test_path)    

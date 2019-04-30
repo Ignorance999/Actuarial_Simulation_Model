@@ -22,8 +22,6 @@ class InputPrototype(object):
         BODY
     """
 
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]
 
     def __init__(self,sFilePath=test_input_table_path):
         try:
@@ -75,7 +73,6 @@ class InputPrototype(object):
     def __str__(self):
         return str(pprint.pprint(self.__dict__))
 
-    #lscAllTableTypes=["MPFTable","GenTable"]
     #TODO:change this to static method? maybe?
     @classmethod
     def fcGetClassType(cls,sFilePath=default_table_path):
@@ -85,4 +82,3 @@ class InputPrototype(object):
         return sTableType
 
 
-#t=Table()

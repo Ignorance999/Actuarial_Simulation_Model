@@ -13,13 +13,8 @@ class OutputFormatTable(Table):
     """
     This class reads data from XML files. It determines the classification of different policies, and how the policies aggregate. The ResultBlock and hence the real outputs will use information from OutputFormatTable.
     """
-   # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]    
-   # _lsXmlTypes=["str","int","str","str"]#,"BODY"]    
-    def __init__(self,*args,**kwargs): #sTableDir=".",        
-        #super().__init__(self,sTableName=sTableName)   
-        #self.dAccumulations={}        
+    def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
-        #self.odOutputFormatsRaw=mUtils.fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).BODY
         self.odOutputFormats=self._fCreateOutputFormats()
         self.odOutputFormatsRaw=self.BODY #alias for BODY
         '''
@@ -70,7 +65,6 @@ class OutputFormatTable(Table):
                 '''[(('first', 'ACCUMULATION', 'ACC1'), ('second', 'CRITERIA', 'bTemp')),
                     (('first', 'PRODUCT', 'PROD2'), ('second', 'CRITERIA', 'bTemp'))]'''
             odAllDims[sKey]=lAllDims  
-                    #self.dOutputFormats=dAllDims
         '''
         {'one': [(('first', 'ACCUMULATION', 'ACC1'), ('second', 'CRITERIA', 'bTemp')),
                  (('first', 'PRODUCT', 'PROD2'), ('second', 'CRITERIA', 'bTemp'))],
@@ -109,4 +103,3 @@ class OutputFormatTable(Table):
             dAllTemp[sKey]=dTemp                    
         return dAllTemp        
     
-#a=OutputFormatTable(test_output_table_path)

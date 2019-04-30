@@ -27,6 +27,3 @@ class GlobalSettings(object):
         self.odOutputFormats=fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).odOutputFormats
         self.odReportVars=fGetFirstElementOrderedDict(self._Input.dAllInputs["ReportVarTable"]).BODY
         
-#from input import Input        
-#g=GlobalSettings(Input())        
-        

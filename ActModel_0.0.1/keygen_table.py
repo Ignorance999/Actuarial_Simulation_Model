@@ -12,15 +12,8 @@ class KeyGenTable(GenTable):
     """    
     def __init__(self,sRestriction=None,*args,**kwargs): 
 		
-		#sTableDir=".",        
-        #super().__init__(self,sTableName=sTableName)
-          
         super().__init__(*args,**kwargs)
         self._sRestriction=sRestriction
-        #self.fSetRestriction(sRestriction)
-    
-    #def fSetRestriction(self,sRestriction=None):
-    #    self.sRestriction=sRestriction
         #TODO: self.keycols cannot be 0, show this checking in mGenTable
         #TODO: KEYCOLS should not have repeated values, should check this
         if len(self.KEYCOLS)>1 or (self._sRestriction!=None and self.KEYCOLS[0]!=self._sRestriction):            

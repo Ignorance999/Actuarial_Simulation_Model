@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 Created on Sat Mar 16 12:40:33 2019
 
 @author: User
 """
 
-#surfix=tbl
 from table import Table
 from MPF_table import MPFTable
 from gen_table import GenTable
@@ -23,8 +21,7 @@ class Input():
     """
 	This class will manage all the inputs. It contains all the Tables and Scripts. During its initilization, these Tables and Scripts are loaded.
     """
-    #lscMultiInputTypes=list(Table.lscAllTableTypes)# shallow copy is enough
-    #lscMultiInputTypes.append("Script")#"GenTable","MPFTable","Script"
+
     lscMultiInputTypes=["MPFTable","GenTable","Script"] # do not count key gen tables as their unique property
     lscSingleInputTypes=["AccumTable","ReportVarTable","OutputFormatTable"]
     dscRestrictionsToKeyGen={"ProdTable":"PRODUCT",
@@ -52,13 +49,13 @@ class Input():
         dsAllInputsDirs={**dsMultiInputDirs,**dsSingleInputDirs}
         self._dpAllInputsDirs={sKey:Path(sVal) for sKey,sVal in dsAllInputsDirs.items()}
         self._dpKeyGenTablesDirs={sKey:Path(sVal) for sKey,sVal in dsKeyGenTablesDirs.items()}
-       # self._pMPFTableDir=Path(sMPFTableDir)
-       # self._pScriptDir=Path(sScriptDir)
         self.dAllInputs={}
+
         for sInputType in Input.lscMultiInputTypes:
             self.dAllInputs[sInputType]=self.fodLoadAllInputs(sInputType,str(self._dpAllInputsDirs[sInputType]))
             
         self.dKeyGenTables={}
+
         for sName in dsKeyGenTablesDirs.keys():
             odTemp=self.fodLoadAllInputs("KeyGenTable",
                                          str(self._dpKeyGenTablesDirs[sName]),
@@ -73,24 +70,11 @@ class Input():
                                                        str(self._dpAllInputsDirs[sInputType]),
                                                        bIfOnlyOneFile=True)
           
-        #self.lAllProducts=list(self.dKeyGenTables["ProdTable"].BODY["PRODUCT"])
-        
-        #self.dlAllKeyGensKeyCol={}
-        #for sTableName,sKeyCol in Input.dscRestrictionsToKeyGen.items():
-        #    self.dlAllKeyGensKeyCol[sTableName]=self.dKeyGenTables[sTableName].flGetEntireColumn(sKeyCol)
-        
-        #self.odAllMPFTables=self.odAllInputs["MPFTable"]
-        #self.odAllGenTables=self.odAllInputs["GenTable"]
-        #self.odAllScripts=self.odAllInputs["Script"]
-        
+
         self.diCurrInput={}
         for sInputType in Input.lscMultiInputTypes:
             self.diCurrInput[sInputType]=-1
-        
-        #for sTableType in Table.lscAllTableTypes:
-        #   self.dAllTables[sTableType]={}
-        
-        #self.fLoadAllInputs(dAllInputs)        
+
         
     def fodLoadAllInputs(self,sInputType,sAllInputDir,bIfOnlyOneFile=False,*args_to_input,**kwargs_to_input)->OrderedDict:
        """
@@ -165,4 +149,3 @@ class Input():
     def fd_sCurrMPFRow(self):
         return self.fd_sCurrInput("MPFTable").fd_sCurrMPFRow() if self.fd_sCurrInput("MPFTable")!="EOF" else "EOF"     
          
-#i=Input()
