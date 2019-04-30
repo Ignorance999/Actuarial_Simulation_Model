@@ -5,7 +5,7 @@ Created on Sat Mar 16 15:33:14 2019
 @author: User
 """
 from directories import accumm_test_path
-from Table import Table
+from table import Table
 '''
         from pathlib import Path
         import xml.etree.ElementTree as xmlET

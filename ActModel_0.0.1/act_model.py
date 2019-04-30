@@ -4,9 +4,9 @@ Created on Sat Mar 16 12:39:33 2019
 
 @author: User
 """
-from Input import Input
-from Output import Output
-from Process import Process
+from input import Input
+from output import Output
+from process import Process
 class ActModel:    
     def __init__(self):
         self._Input = Input()
