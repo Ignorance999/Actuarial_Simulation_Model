@@ -6,19 +6,17 @@ Created on Sat Mar 16 12:40:33 2019
 """
 
 #surfix=tbl
-from mTable import Table
-from mMPFTable import MPFTable
-from mGenTable import GenTable
-from mKeyGenTable import KeyGenTable
-from mScript import Script
-from mAccumTable import AccumTable
-from mReportVarTable import ReportVarTable
-from mOutputFormatTable import OutputFormatTable
-#import mUtils
+from table import Table
+from MPF_table import MPFTable
+from gen_table import GenTable
+from keygen_table import KeyGenTable
+from script import Script
+from accum_table import AccumTable
+from report_var_table import ReportVarTable
+from output_format_table import OutputFormatTable
 from pathlib import Path
-import collections
+from collections import OrderedDict
 import directories as dirs
-#import re
 
 class Input():
     """
@@ -93,7 +91,7 @@ class Input():
         
         #self.fLoadAllInputs(dAllInputs)        
         
-    def fodLoadAllInputs(self,sInputType,sAllInputDir,bIfOnlyOneFile=False,*args_to_input,**kwargs_to_input)->collections.OrderedDict:
+    def fodLoadAllInputs(self,sInputType,sAllInputDir,bIfOnlyOneFile=False,*args_to_input,**kwargs_to_input)->OrderedDict:
        """
        Called from __init__. It is to load specified tables/scripts from sAllInputDir
        :param sInputType: the class of the table. e.g. GenTable
@@ -105,7 +103,7 @@ class Input():
        """
        pAllInputDir=Path(sAllInputDir)
 
-       odTemp=collections.OrderedDict()#
+       odTemp = OrderedDict()
        if bIfOnlyOneFile and not sAllInputDir.endswith(".txt"):
            raise Exception("KeyGenTable must has only one instance!")            
        lpFilePaths=[pAllInputDir] if sAllInputDir.endswith(".txt") else pAllInputDir.glob("**\*.txt")       
