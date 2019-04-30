@@ -4,10 +4,8 @@ Created on Sat Mar 16 12:40:33 2019
 
 @author: User
 """
-from pathlib import Path
-import xml.etree.ElementTree as xmlET
-from mInputPrototype import InputPrototype
-from mVariable import Variable
+from input_prototype import InputPrototype
+from variable import Variable
 
 class Script(InputPrototype):
     """
