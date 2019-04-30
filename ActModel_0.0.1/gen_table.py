@@ -4,12 +4,9 @@ Created on Sat Mar 16 15:33:14 2019
 
 @author: User
 """
-#import xml.etree.ElementTree as xmlET
-import sys,os
-import mUtils
-from mTable import Table
+from utils import fGetTypeFromBuiltins
+from table import Table
 from directories import gentable_test_path
-#from collections import namedtuple
 
 class GenTable(Table):
     """
@@ -30,7 +27,7 @@ class GenTable(Table):
         import re 
         #lfType=[getattr(globals()["__builtins__"],s) for s in self.TYPE]        
         #lfType=[globals()["__builtins__"][s] for s in self.TYPE]   
-        lfType=[mUtils.fGetTypeFromBuiltins(s) for s in self.TYPE]        
+        lfType=[fGetTypeFromBuiltins(s) for s in self.TYPE]        
         dTemp={}        
         for s in lsBody:
             if bool(re.search(".+",s)):
