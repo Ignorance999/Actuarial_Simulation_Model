@@ -8,6 +8,7 @@ Created on Sat Mar 16 15:33:14 2019
 import sys,os
 import mUtils
 from mTable import Table
+from directories import gentable_test_path
 #from collections import namedtuple
 
 class GenTable(Table):
@@ -75,4 +76,4 @@ class GenTable(Table):
                 lTemp.append(tTemp)
         return lTemp
                 
-#t=GenTable(".\\test_input\\Table.txt")    
+#t=GenTable(gentable_test_path)    
