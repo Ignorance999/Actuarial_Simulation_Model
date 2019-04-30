@@ -4,10 +4,9 @@ Created on Mon Mar 25 15:52:12 2019
 
 @author: User
 """
-#import pandas
+from utils import fGetFirstElementOrderedDict
 import collections
 import itertools
-import mUtils
 '''
 ntGlobalSettings=collections.namedtuple("GlobalSettings",["odDimVarRanges","odOutputFormats","odReportVars"],verbose=False)\
                 (odDimVarRanges=collections.OrderedDict([("t",range(0,100)),
@@ -24,10 +23,10 @@ class GlobalSettings(object):
                                                          ("s",range(4,6))])
         
        # print(next(iter(self._Input.dAllInputs["OutputFormatTable"].values())))
-        self.odOutputFormatsRaw=mUtils.fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).BODY
-        self.odOutputFormats=mUtils.fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).odOutputFormats
-        self.odReportVars=mUtils.fGetFirstElementOrderedDict(self._Input.dAllInputs["ReportVarTable"]).BODY
+        self.odOutputFormatsRaw=fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).BODY
+        self.odOutputFormats=fGetFirstElementOrderedDict(self._Input.dAllInputs["OutputFormatTable"]).odOutputFormats
+        self.odReportVars=fGetFirstElementOrderedDict(self._Input.dAllInputs["ReportVarTable"]).BODY
         
-#from mInput import Input        
+#from input import Input        
 #g=GlobalSettings(Input())        
         
