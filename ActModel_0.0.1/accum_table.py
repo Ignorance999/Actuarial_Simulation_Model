@@ -10,6 +10,7 @@ from mTable import Table
 import pandas as pandas
 from io import StringIO
 import types
+from directories import accumm_test_path
 #import pandas
 '''
         from pathlib import Path
@@ -49,4 +50,4 @@ class AccumTable(Table):
         else:
             raise Exception("Error for AccumTable! s_lProd can only be s or l")
     
-#a=AccumTable(".\\test_output\\accum.txt")
+#a=AccumTable(accumm_test_path)
