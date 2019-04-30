@@ -4,10 +4,9 @@ Created on Sat Mar 16 12:40:33 2019
 
 @author: User
 """
-#import types
 import inspect
 import types
-#import pandas
+
 class Variable(object):
     """
     This class represent a basic unit of calculation while running the model. Its most important member variable is self._fFunction.

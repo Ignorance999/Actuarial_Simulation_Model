@@ -4,7 +4,7 @@ Created on Mon Mar 25 15:52:12 2019
 
 @author: User
 """
-from mVariable import Variable
+from variable import Variable
 
 def fGetTypeFromBuiltins(sType:str):
     """
