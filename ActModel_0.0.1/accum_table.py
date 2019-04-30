@@ -4,14 +4,8 @@ Created on Sat Mar 16 15:33:14 2019
 
 @author: User
 """
-#import xml.etree.ElementTree as xmlET
-import sys,os
-from mTable import Table
-import pandas as pandas
-from io import StringIO
-import types
 from directories import accumm_test_path
-#import pandas
+from Table import Table
 '''
         from pathlib import Path
         import xml.etree.ElementTree as xmlET
