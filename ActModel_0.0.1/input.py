@@ -17,6 +17,7 @@ from mOutputFormatTable import OutputFormatTable
 #import mUtils
 from pathlib import Path
 import collections
+import directories as dirs
 #import re
 
 class Input():
@@ -30,16 +31,16 @@ class Input():
     dscRestrictionsToKeyGen={"ProdTable":"PRODUCT",
                              "ScenTable":"SCEN_ID",
                              "GlobalTable":"RUN_NUM"}
-    def __init__(self,dsMultiInputDirs={"GenTable":test_input_dir,
-                 "MPFTable":mpf_dir,
-                 "Script":script_dir},
-                 dsSingleInputDirs={"AccumTable":test_output_dir,
-                                    "ReportVarTable":report_var_test_path,
-                                    "OutputFormatTable":output_format_test_path},#"KeyGenTable":".\\Prod\\"
+    def __init__(self,dsMultiInputDirs={"GenTable":dirs.test_input_dir,
+                 "MPFTable":dirs.mpf_dir,
+                 "Script":dirs.script_dir},
+                 dsSingleInputDirs={"AccumTable":dirs.test_output_dir,
+                                    "ReportVarTable":dirs.report_var_test_path,
+                                    "OutputFormatTable":dirs.output_format_test_path},#"KeyGenTable":".\\Prod\\"
                  dsKeyGenTablesDirs={
-                 "ProdTable":prod_table_path,
-                 "ScenTable":scen_table_path,
-                 "GlobalTable":global_table_path}):
+                 "ProdTable":dirs.prod_table_path,
+                 "ScenTable":dirs.scen_table_path,
+                 "GlobalTable":dirs.global_table_path}):
         """
 
         :param dsMultiInputDirs:

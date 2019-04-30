@@ -26,3 +26,5 @@ scen_table_path   = format_path(".\\Prod\\scen.txt")
 global_table_path = format_path(".\\Prod\\GLOBAL.txt")
 
 
+test_input_table_path = format_path(".\\test_input\\Table.txt")
+default_table_path = format_path(".\\Table.txt")

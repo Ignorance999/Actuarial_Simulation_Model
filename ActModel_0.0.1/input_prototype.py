@@ -10,7 +10,7 @@ from pathlib import Path
 import xml.etree.ElementTree as xmlET
 import mUtils
 import pprint
-
+from directories import test_input_table_path, default_table_path
 
 class InputPrototype(object):
     """
@@ -26,7 +26,7 @@ class InputPrototype(object):
    # _lsXmlAttrs=["FEATURES","KEYCOLS","HEADINGS","TYPE"]#,"BODY"]
    # _lsXmlTypes=["str","int","str","str"]#,"BODY"]
 
-    def __init__(self,sFilePath=".\\test_input\\Table.txt"):
+    def __init__(self,sFilePath=test_input_table_path):
         try:
             self._pThisModuleDir = Path(__file__).parent
         except NameError:
@@ -79,7 +79,7 @@ class InputPrototype(object):
     #lscAllTableTypes=["MPFTable","GenTable"]
     #TODO:change this to static method? maybe?
     @classmethod
-    def fcGetClassType(cls,sFilePath=".\\Table.txt"):
+    def fcGetClassType(cls,sFilePath=default_table_path):
         pFilePath=Path(sFilePath)
         xmlRoot = xmlET.parse(pFilePath).getroot()
         sTableType=xmlRoot.find("CLASS_TYPE").text
