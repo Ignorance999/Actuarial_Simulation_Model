@@ -4,18 +4,11 @@ Created on Sat Mar 16 15:33:14 2019
 
 @author: User
 """
-#import xml.etree.ElementTree as xmlET
-import sys,os
-from mTable import Table
-import pandas as pandas
+from table import Table
+import pandas
 from io import StringIO
 import re
-#import pandas
-'''
-        from pathlib import Path
-        import xml.etree.ElementTree as xmlET
-      import re 
-      '''
+
 class MPFTable(Table):
     """
     This class read data from XML file and generate a dataframe containing records for different policies.
@@ -33,8 +26,6 @@ class MPFTable(Table):
     def _fXMLReadBody(self)->pandas.DataFrame:
         #self.BODY is dataframe
         
-        #import pandas        
-        # from io import StringIO
         sioBody=StringIO(re.sub(r"\t+","",self._xmlRoot.find("BODY").text).strip())
         self.BODY=pandas.read_csv(sioBody,sep=",",header=None,names=self.HEADINGS)
         return self.BODY
