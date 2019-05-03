@@ -139,3 +139,8 @@ Session.vim
 tags
 # Persistent undo
 [._]*.un~
+
+
+# Ignore output files
+one.xlsx
+second.xlsx
