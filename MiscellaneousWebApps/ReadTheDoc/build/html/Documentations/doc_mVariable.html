@@ -15,6 +15,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="doc_mVarNameSpace" href="doc_mVarNameSpace.html" />
+    <link rel="prev" title="doc_mScript" href="doc_mScript.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -67,7 +69,28 @@
 <span class="go"> &#39;lsFuncArgs&#39;: [],</span>
 <span class="go"> &#39;_dCache&#39;: {},</span>
 <span class="go"> &#39;lProduct&#39;: [&#39;PROD1&#39;],</span>
-<span class="go"> &#39;lAccumulation&#39;: [&#39;ACC1&#39;]}</span>
+<span class="go"> &#39;lAccumulation&#39;: [&#39;ACC1&#39;],</span>
+<span class="go"> &#39;bRerunEveryTime&#39;: False}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">=</span><span class="n">Process</span><span class="p">()</span> <span class="c1">#another example showing the situation after running the model</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">fRunModel</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vTemp</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">mVarNameSpace</span><span class="o">.</span><span class="n">aa</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vTemp</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="go">{&#39;sName&#39;: &#39;aa&#39;,</span>
+<span class="go"> &#39;sFunction&#39;: &#39;def aa(t):\n\t\t\t\treturn t&#39;,</span>
+<span class="go"> &#39;sModule&#39;: &#39;oneguy&#39;,</span>
+<span class="go"> &#39;_fFunction&#39;: &lt;function var_name_space.aa(t)&gt;,</span>
+<span class="go"> &#39;lsFuncArgs&#39;: [&#39;t&#39;],</span>
+<span class="go"> &#39;_dCache&#39;: {(0,): 0,</span>
+<span class="go">  (1,): 1,</span>
+<span class="go">  (2,): 2,</span>
+<span class="go">  (3,): 3,</span>
+<span class="go">  ...lots of outputs</span>
+<span class="go">  (97,): 97,</span>
+<span class="go">  (98,): 98,</span>
+<span class="go">  (99,): 99},</span>
+<span class="go"> &#39;lProduct&#39;: [&#39;PROD1&#39;],</span>
+<span class="go"> &#39;lAccumulation&#39;: [&#39;ACC1&#39;],</span>
+<span class="go"> &#39;bRerunEveryTime&#39;: False}</span>
 </pre></div>
 </div>
 </li>
@@ -130,6 +153,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="content_for_codes_doc.html">Documentation for codes</a><ul>
+      <li>Previous: <a href="doc_mScript.html" title="previous chapter">doc_mScript</a></li>
+      <li>Next: <a href="doc_mVarNameSpace.html" title="next chapter">doc_mVarNameSpace</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
