@@ -12,38 +12,41 @@ class Variable(object):
     """
     This class represent a basic unit of calculation while running the model. Its most important member variable is self._fFunction.
     """
-
-    def __init__(self, sName="", sFunction="", sModule="", sProduct="", sAccumulation=""):
-        self.sName = sName
-        self.sFunction = sFunction
-        self.sModule = sModule
-        # dTemp={}
-        # exec(self.sFunction,dTemp)
-        # self._fFunction=dTemp[self.sName]
-        # self.fFunction=None#types.FunctionType()
-        self._fFunction = None
-        self.lsFuncArgs = []
-        self._dCache = {}
-        self.lProduct = sProduct.split(",")
-        self.lAccumulation = sAccumulation.split(",")
-
-    def __call__(self, *args, **kwargs):
-        if self._fFunction != None:
-            sigTemp = inspect.signature(self._fFunction)
-            bargTemp = sigTemp.bind(*args, **kwargs)
-            bargTemp.apply_defaults()
-            odArgs = bargTemp.arguments
-            tParams = tuple(odArgs.values())
-            if tParams == ():  # if this function has 0 arguments
-                tParams = tuple("SINGLE_VALUE")
-
-            if tParams in self._dCache:
-                #print("use cache")
-                return self._dCache[tParams]
+    def __init__(self,sName="",sFunction="",sModule="",sProduct="",sAccumulation="",bRerunEveryTime=False):
+        self.sName=sName
+        self.sFunction=sFunction
+        self.sModule=sModule        
+        #dTemp={}
+        #exec(self.sFunction,dTemp)
+        #self._fFunction=dTemp[self.sName]
+        #self.fFunction=None#types.FunctionType()
+        self._fFunction=None
+        self.lsFuncArgs=[]
+        self._dCache={}
+        self.lProduct=sProduct.split(",")
+        self.lAccumulation=sAccumulation.split(",")
+        self.bRerunEveryTime=bRerunEveryTime
+    
+    def __call__(self,*args,**kwargs):        
+        if self._fFunction!=None:
+            if self.bRerunEveryTime:
+                return self._fFunction(*args,**kwargs)
             else:
-                autoResult = self._fFunction(*args, **kwargs)
-                self._dCache[tParams] = autoResult
-                return autoResult
+                sigTemp=inspect.signature(self._fFunction)
+                bargTemp=sigTemp.bind(*args,**kwargs)
+                bargTemp.apply_defaults()
+                odArgs=bargTemp.arguments
+                tParams=tuple(odArgs.values())
+                if tParams==():#if this function has 0 arguments
+                    tParams=tuple("SINGLE_VALUE")
+    
+                if tParams in self._dCache:
+                    #print("use cache")
+                    return self._dCache[tParams]
+                else:
+                    autoResult=self._fFunction(*args,**kwargs)
+                    self._dCache[tParams]=autoResult
+                    return autoResult
         else:
             # this error is quite impossible, as function is initilized in __init__
             raise Exception("call a None in variable class!")
