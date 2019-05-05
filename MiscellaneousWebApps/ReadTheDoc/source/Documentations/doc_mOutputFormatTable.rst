@@ -1,5 +1,5 @@
 doc_mOutputFormatTable
-=============
+======================
 
 Documentation
 *************
@@ -51,6 +51,7 @@ Documentation
 		3. _fXMLReadBody(self)
 		
 		4. _fCreateOutputFormats(self)
+		
 		>>> sKey=list(of.BODY.keys())[0]
 		'one'
 		>>> lTemp=list(of.BODY.values())[0]

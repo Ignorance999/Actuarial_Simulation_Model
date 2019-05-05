@@ -1,5 +1,5 @@
 doc_mResultBlock
-=============
+================
 
 Documentation
 *************
@@ -7,9 +7,10 @@ Documentation
 
 	This class's instance contains data calculated from VarNameSpace, after calling fRunModel(). 
 	Its self.dfResults have 3 major dimensions, namely OutputGpInd, RangeInd, VarInd. 
-	OutputGpInd: Outputformat keys, which are tuples defined in OutputFormatTable class instance.
-	RangeInd: Values for Parameters of Variables. e.g. t=0, or t=10
-	VarInd: Names of Variables
+	
+	1. OutputGpInd: Outputformat keys, which are tuples defined in OutputFormatTable class instance.
+	2. RangeInd: Values for Parameters of Variables. e.g. t=0, or t=10
+	3. VarInd: Names of Variables
 
 	
 2. List of Member Variables and Methods

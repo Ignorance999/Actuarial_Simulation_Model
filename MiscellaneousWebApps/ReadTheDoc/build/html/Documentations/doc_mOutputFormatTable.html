@@ -15,7 +15,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="doc_mVariable" href="doc_mOutput.html" />
+    <link rel="next" title="doc_mOutput" href="doc_mOutput.html" />
     <link rel="prev" title="doc_mResultBlock" href="doc_mResultBlock.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -97,18 +97,16 @@
 </ol>
 <ol class="arabic simple" start="3">
 <li>_fXMLReadBody(self)</li>
+<li>_fCreateOutputFormats(self)</li>
 </ol>
-<p>4. _fCreateOutputFormats(self)
-&gt;&gt;&gt; sKey=list(of.BODY.keys())[0]
-‘one’
-&gt;&gt;&gt; lTemp=list(of.BODY.values())[0]
-&gt;&gt;&gt; lTemp
-[(‘first’, ‘ACCUMULATION’, ‘ACC1’),</p>
-<blockquote>
-<div><p>(‘first’, ‘PRODUCT’, ‘PROD2’),
-(‘second’, ‘CRITERIA’, ‘bTemp’)]</p>
-</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dDims</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sKey</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">of</span><span class="o">.</span><span class="n">BODY</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;one&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lTemp</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">of</span><span class="o">.</span><span class="n">BODY</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lTemp</span>
+<span class="go">[(&#39;first&#39;, &#39;ACCUMULATION&#39;, &#39;ACC1&#39;),</span>
+<span class="go"> (&#39;first&#39;, &#39;PRODUCT&#39;, &#39;PROD2&#39;),</span>
+<span class="go"> (&#39;second&#39;, &#39;CRITERIA&#39;, &#39;bTemp&#39;)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dDims</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="go">        for tTemp in lTemp:</span>
 <span class="go">                sDimName = tTemp[0]</span>
 <span class="go">                if sDimName in dDims:</span>
@@ -305,7 +303,7 @@ for tTemp2 in tTemp1:</p>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="content_for_codes_doc.html">Documentation for codes</a><ul>
       <li>Previous: <a href="doc_mResultBlock.html" title="previous chapter">doc_mResultBlock</a></li>
-      <li>Next: <a href="doc_mOutput.html" title="next chapter">doc_mVariable</a></li>
+      <li>Next: <a href="doc_mOutput.html" title="next chapter">doc_mOutput</a></li>
   </ul></li>
   </ul></li>
 </ul>
