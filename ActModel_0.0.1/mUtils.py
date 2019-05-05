@@ -22,13 +22,15 @@ def fGetFirstElementOrderedDict(odTemp):
     return next(iter(odTemp.values()))
 
 
-def fdecCreateVariable(fInput):
-    """
-    a function decorator. Used in mVarNameSpace.py. It will change fInput from a function to a Variable
-    """
-    varTemp=Variable()
-    varTemp.fSetfFunction(fInput,bReInitialize=True)
-    #varTemp.fReInitialize()
-    return varTemp
+def fdecCreateVariable(bRerunEveryTime=False):
+    def fdecReal(fInput):    
+        """
+        a function decorator. Used in mVarNameSpace.py. It will change fInput from a function to a Variable
+        """
+        varTemp=Variable(bRerunEveryTime=bRerunEveryTime)
+        varTemp.fSetfFunction(fInput,bReInitialize=True)
+        #varTemp.fReInitialize()
+        return varTemp
+    return fdecReal
     
     

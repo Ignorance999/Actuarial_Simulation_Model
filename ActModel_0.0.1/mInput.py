@@ -46,9 +46,12 @@ class Input():
         :param dsSingleInputDirs:
         :param dsKeyGenTablesDirs:
         """
-                  
-        
-        self._pThisModuleDir = Path(__file__).parent
+        try:
+            self._pThisModuleDir = Path(__file__).parent
+        except NameError:
+            #Console Mode
+            self._pThisModuleDir=None
+
         dsAllInputsDirs={**dsMultiInputDirs,**dsSingleInputDirs}
         self._dpAllInputsDirs={sKey:Path(sVal) for sKey,sVal in dsAllInputsDirs.items()}
         self._dpKeyGenTablesDirs={sKey:Path(sVal) for sKey,sVal in dsKeyGenTablesDirs.items()}

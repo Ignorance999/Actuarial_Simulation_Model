@@ -47,7 +47,7 @@ def fRunModel():
             globals()[sVar](**dArgs)
         OUTPUT.fRecordPolResults(globals()[sVar],odCURR_OUTPUT_FORMAT_RAW_CHECK())
     
-@fdecCreateVariable    
+@fdecCreateVariable(bRerunEveryTime=True)     
 def odCURR_OUTPUT_FORMAT_RAW_CHECK():
     #TODO: a bit hard to understand,more explanation later
     odAllDimsCheck=collections.OrderedDict()
@@ -72,13 +72,13 @@ def odCURR_OUTPUT_FORMAT_RAW_CHECK():
                     
                     
                 
-@fdecCreateVariable    
+@fdecCreateVariable(bRerunEveryTime=True)     
 def dCURR_POLICY():
     return INPUT.fd_sCurrMPFRow()	
 
-@fdecCreateVariable    
+@fdecCreateVariable(bRerunEveryTime=True)   
 def sCURR_PRODUCT():
-    if dCURR_POLICY!="EOF":
+    if dCURR_POLICY()!="EOF":
         sMPFProd=INPUT.fd_sCurrInput("MPFTable").PRODUCT
         if sMPFProd!="ALL": 
             sProd=sMPFProd										
@@ -91,7 +91,7 @@ def sCURR_PRODUCT():
     else:
         return "EOF"
     
-@fdecCreateVariable    
+@fdecCreateVariable(bRerunEveryTime=True)    
 def dNEXT_POLICY():
     return INPUT.fd_sNextMPFRow()
 #def aa(t):
