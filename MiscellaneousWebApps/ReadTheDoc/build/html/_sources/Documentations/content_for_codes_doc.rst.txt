@@ -14,4 +14,10 @@ Indices and tables
 	doc_mMPFTable
 	doc_mScript
 	doc_mVariable
+	doc_mVarNameSpace
+	doc_mInput
+	doc_mReportVarTable
+	doc_mResultBlock
+	doc_mOutputFormatTable
+	doc_mOutput
 	

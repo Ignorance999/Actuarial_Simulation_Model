@@ -29,7 +29,28 @@ Documentation
 			 'lsFuncArgs': [],
 			 '_dCache': {},
 			 'lProduct': ['PROD1'],
-			 'lAccumulation': ['ACC1']}
+			 'lAccumulation': ['ACC1'],
+			 'bRerunEveryTime': False}
+			>>> p=Process() #another example showing the situation after running the model
+			>>> p.fRunModel()
+			>>> vTemp=p.mVarNameSpace.aa
+			>>> vTemp.__dict__
+			{'sName': 'aa',
+			 'sFunction': 'def aa(t):\n\t\t\t\treturn t',
+			 'sModule': 'oneguy',
+			 '_fFunction': <function var_name_space.aa(t)>,
+			 'lsFuncArgs': ['t'],
+			 '_dCache': {(0,): 0,
+			  (1,): 1,
+			  (2,): 2,
+			  (3,): 3,
+			  ...lots of outputs
+			  (97,): 97,
+			  (98,): 98,
+			  (99,): 99},
+			 'lProduct': ['PROD1'],
+			 'lAccumulation': ['ACC1'],
+			 'bRerunEveryTime': False}
 			 
 		2. fSetfFunction(self,mModule_fFunc,bReInitialize=False)
 			>>> import imp

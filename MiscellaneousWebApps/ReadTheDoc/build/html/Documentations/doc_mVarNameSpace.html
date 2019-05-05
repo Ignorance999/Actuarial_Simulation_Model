@@ -1,0 +1,265 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>doc_mVarNameSpace &#8212; ActModel 0.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="doc_mInput" href="doc_mInput.html" />
+    <link rel="prev" title="doc_mVariable" href="doc_mVariable.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="doc-mvarnamespace">
+<h1>doc_mVarNameSpace<a class="headerlink" href="#doc-mvarnamespace" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Brief Explanation of VarNameSpace</dt>
+<dd><ol class="first arabic simple">
+<li>It is created from Process instance</li>
+<li>It is a Module</li>
+<li>Other comments:</li>
+</ol>
+<p class="last">This module is the namespace for model calculation. Variables, Input, GlobalSettings and Output class instances will be loaded here for running the model. It will also generate the results and pass them to Output.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>List of Variables and Methods contained in this module</dt>
+<dd><ol class="first last arabic" start="0">
+<li><p class="first">How to Create a class instance</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">=</span><span class="n">Process</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">mVarNameSpace</span>
+</pre></div>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt>Functions</dt>
+<dd><blockquote class="first">
+<div><blockquote>
+<div><blockquote>
+<div><ol class="arabic simple">
+<li>__init__(self,sName=”“,sFunction=”“,sModule=”“,sProduct=”“,sAccumulation=”“)</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="gp">... </span><span class="n">Omit</span> <span class="n">many</span> <span class="n">useless</span> <span class="n">lines</span>
+<span class="go">&#39;fdecCreateVariable&#39;: &lt;function mUtils.fdecCreateVariable(fInput)&gt;,</span>
+<span class="go">&#39;mUtils&#39;: &lt;module &#39;mUtils&#39; from &#39;C:\\Users\\User\\Documents\\ACT\\ActModel\\ActModel_Curr\\mUtils.py&#39;&gt;,</span>
+<span class="go">&#39;INPUT&#39;: &lt;__main__.Input at 0xa013940&gt;,</span>
+<span class="go">&#39;GLOBAL_SETTINGS&#39;: &lt;mGlobalSettings.GlobalSettings at 0xa029ef0&gt;,</span>
+<span class="go">&#39;OUTPUT&#39;: &lt;mOutput.Output at 0xa02ef98&gt;,</span>
+<span class="go">&#39;fRunModel&#39;: &lt;function mVarNameSpace.fRunModel()&gt;,</span>
+<span class="go">&#39;odCURR_OUTPUT_FORMAT_RAW_CHECK&#39;: &lt;mVariable.Variable at 0x9f6f6d8&gt;,</span>
+<span class="go">&#39;dCURR_POLICY&#39;: &lt;mVariable.Variable at 0x9f6f630&gt;,</span>
+<span class="go">&#39;sCURR_PRODUCT&#39;: &lt;mVariable.Variable at 0x9f6f358&gt;,</span>
+<span class="go">&#39;dNEXT_POLICY&#39;: &lt;mVariable.Variable at 0x9f6f710&gt;,</span>
+<span class="go">&#39;aa1&#39;: &lt;mVariable.Variable at 0xa021550&gt;,</span>
+<span class="go">&#39;bb1&#39;: &lt;mVariable.Variable at 0xa021cc0&gt;,</span>
+<span class="go">&#39;aa&#39;: &lt;mVariable.Variable at 0xa029320&gt;,</span>
+<span class="go">&#39;bb&#39;: &lt;mVariable.Variable at 0xa029518&gt;,</span>
+<span class="go">&#39;CC&#39;: &lt;mVariable.Variable at 0xa029668&gt;,</span>
+<span class="go">&#39;bTemp&#39;: &lt;mVariable.Variable at 0xa029860&gt;,</span>
+<span class="go">&#39;bTemp2&#39;: &lt;mVariable.Variable at 0xa029cc0&gt;}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>dCURR_POLICY()</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">.</span><span class="n">dCURR_POLICY</span><span class="p">()</span>
+<span class="go">&#39;EOF&#39;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>sCURR_PRODUCT()</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">.</span><span class="n">sCURR_PRODUCT</span><span class="p">()</span>
+<span class="go">&#39;EOF&#39;</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>dNEXT_POLICY()</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">.</span><span class="n">dNEXT_POLICY</span><span class="p">()</span>
+<span class="go">{&#39;SONE&#39;: &#39;PRODuu1&#39;, &#39;PRODUCT&#39;: &#39;PROD1&#39;, &#39;STHIRD&#39;: 3}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">.</span><span class="n">dNEXT_POLICY</span><span class="p">()</span>
+<span class="go">{&#39;SONE&#39;: &#39;PROD2&#39;, &#39;PRODUCT&#39;: &#39;PROD2&#39;, &#39;STHIRD&#39;: 1}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>odCURR_OUTPUT_FORMAT_RAW_CHECK()</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">.</span><span class="n">odCURR_OUTPUT_FORMAT_RAW_CHECK</span><span class="p">()</span>
+<span class="go">OrderedDict([(&#39;one&#39;,</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>{(‘first’, ‘ACCUMULATION’, ‘ACC1’): False,</dt>
+<dd><p class="first last">(‘first’, ‘PRODUCT’, ‘PROD2’): True,
+(‘second’, ‘CRITERIA’, ‘bTemp’): True}),</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>(‘second’,</dt>
+<dd><dl class="first last docutils">
+<dt>{(‘first’, ‘ACCUMULATION’, ‘ACC1’): False,</dt>
+<dd><p class="first">(‘first’, ‘PRODUCT’, ‘PROD2’): True,
+(‘second’, ‘CRITERIA’, ‘bTemp’): True})])</p>
+<blockquote class="last">
+<div><ol class="arabic simple" start="6">
+<li>fRunModel()</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">odVarRanges</span> <span class="o">=</span> <span class="n">vn</span><span class="o">.</span><span class="n">GLOBAL_SETTINGS</span><span class="o">.</span><span class="n">odDimVarRanges</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">odVarRanges</span>
+<span class="go">OrderedDict([(&#39;t&#39;, range(0, 100)), (&#39;k&#39;, range(3, 500)), (&#39;s&#39;, range(4, 6))])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lsVars</span> <span class="o">=</span> <span class="n">vn</span><span class="o">.</span><span class="n">GLOBAL_SETTINGS</span><span class="o">.</span><span class="n">odReportVars</span><span class="p">[</span><span class="s2">&quot;ok&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lsVars</span>
+<span class="go">vn.GLOBAL_SETTINGS.odReportVars[&quot;ok&quot;]</span>
+<span class="go">[&#39;aa&#39;, &#39;bb&#39;, &#39;CC&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vn</span><span class="o">.</span><span class="n">dNEXT_POLICY</span><span class="p">()</span>
+<span class="go">{&#39;SONE&#39;: &#39;PROD1&#39;, &#39;PRODUCT&#39;: &#39;PROD1&#39;, &#39;STHIRD&#39;: 1} # the third record is shown because the first 2 are already shown during testing of dNEXT_POLICY()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">odTemps</span><span class="o">=</span><span class="p">[</span><span class="n">OrderedDict</span><span class="p">({</span><span class="n">sKey</span><span class="p">:</span> <span class="n">odVarRanges</span><span class="p">[</span><span class="n">sKey</span><span class="p">]</span> <span class="k">for</span> <span class="n">sKey</span> <span class="ow">in</span> <span class="n">vn</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">sVar</span><span class="p">]</span><span class="o">.</span><span class="n">lsFuncArgs</span><span class="p">})</span> <span class="k">for</span> <span class="n">sVar</span> <span class="ow">in</span> <span class="n">lsVars</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">odTemps</span>
+<span class="go">[OrderedDict([(&#39;t&#39;, range(0, 100))]),</span>
+<span class="go"> OrderedDict([(&#39;t&#39;, range(0, 100)), (&#39;k&#39;, range(3, 500))]),</span>
+<span class="go"> OrderedDict()]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">odTemp</span><span class="o">=</span><span class="n">odTemp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">product</span> <span class="k">as</span> <span class="n">cartesian_product</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lDimVarsAllProds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cartesian_product</span><span class="p">(</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="last docutils">
+<dt><a href="#id1"><span class="problematic" id="id2">*</span></a>[autoTemp for autoTemp in odTemp.values()]))</dt>
+<dd><div class="first highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lDimVarsAllProds</span>
+<span class="go">[(0,),</span>
+<span class="go"> (1,),</span>
+<span class="go"> (2,),</span>
+<span class="go"> (3,),</span>
+<span class="go"> ...many outputs</span>
+<span class="go"> (93,),</span>
+<span class="go"> (94,),</span>
+<span class="go"> (95,),</span>
+<span class="go"> (96,),</span>
+<span class="go"> (97,),</span>
+<span class="go"> (98,),</span>
+<span class="go"> (99,)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dArgs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">tTemp</span> <span class="ow">in</span> <span class="n">lDimVarsAllProds</span><span class="p">:</span>
+<span class="go">                for iInd, sArg in enumerate(odTemp.keys()):</span>
+<span class="go">                        dArgs[sArg] = tTemp[iInd]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dArgs</span>
+<span class="go">{&#39;t&#39;: 99}</span>
+</pre></div>
+</div>
+<p class="last">… and other functions</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><p class="first">Variables</p>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">Related Document</p>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">doc_mVarNameSpace</a><ul>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="content_for_codes_doc.html">Documentation for codes</a><ul>
+      <li>Previous: <a href="doc_mVariable.html" title="previous chapter">doc_mVariable</a></li>
+      <li>Next: <a href="doc_mInput.html" title="next chapter">doc_mInput</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Documentations/doc_mVarNameSpace.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Ignorance999.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/Documentations/doc_mVarNameSpace.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

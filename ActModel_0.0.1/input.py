@@ -46,15 +46,18 @@ class Input():
         :param dsSingleInputDirs:
         :param dsKeyGenTablesDirs:
         """
+        try:
+            self._pThisModuleDir = Path(__file__).parent
+        except NameError:
+            #Console Mode
+            self._pThisModuleDir=None
 
-        self._pThisModuleDir = Path(__file__).parent
-        dsAllInputsDirs = {**dsMultiInputDirs, **dsSingleInputDirs}
-        self._dpAllInputsDirs = {sKey: Path(sVal)
-                                 for sKey, sVal in dsAllInputsDirs.items()}
-        self._dpKeyGenTablesDirs = {sKey: Path(
-            sVal) for sKey, sVal in dsKeyGenTablesDirs.items()}
-        self.dAllInputs = {}
-
+        dsAllInputsDirs={**dsMultiInputDirs,**dsSingleInputDirs}
+        self._dpAllInputsDirs={sKey:Path(sVal) for sKey,sVal in dsAllInputsDirs.items()}
+        self._dpKeyGenTablesDirs={sKey:Path(sVal) for sKey,sVal in dsKeyGenTablesDirs.items()}
+       # self._pMPFTableDir=Path(sMPFTableDir)
+       # self._pScriptDir=Path(sScriptDir)
+        self.dAllInputs={}
         for sInputType in Input.lscMultiInputTypes:
             self.dAllInputs[sInputType] = self.fodLoadAllInputs(
                 sInputType, str(self._dpAllInputsDirs[sInputType]))
